@@ -1,0 +1,150 @@
+$color-primary:#FFD100;
+$color-secondary: #202020;
+$color-write: #fff;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+
+    .row{
+        display: flex;
+        width: 100%;
+    }
+}
+
+.mt-2{
+    margin-top: 2em;
+}
+
+.mb-2{
+    margin-bottom: 2em;
+}
+
+form{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    *{
+        flex: 1;
+        width: 100%;
+        height: 40px;
+        border-radius: 4px;
+        border: none;
+        box-shadow: 0 0 10px rgba($color: #000000, $alpha: .2);
+        outline: none;
+        line-height: 40px;
+        font-size: 1.2rem;
+        padding-left: 5px;
+        color: $color-secondary;
+
+        &::placeholder{
+            color: rgba($color-secondary, $alpha: .4);
+        }
+    }
+
+    textarea{
+        flex: 4;
+    }
+
+    button{
+        cursor: pointer;
+        background: $color-primary;
+        color: $color-secondary;
+        transition: all ease-in-out .4s;
+
+        &:hover{
+            background: rgba($color: $color-primary, $alpha: .5);
+        }
+    }
+
+    @media (max-width:768px){
+        flex-direction: column;
+    }
+}
+
+.info-whats{
+    margin: 3em 0;
+    width: 100%;
+    background: $color-primary;
+    border-radius: 4px;
+    padding: 1em 2em;
+
+    .title{
+        margin-bottom: 1em;
+        color: $color-secondary;
+    }
+
+    .info{
+        position: relative;
+        span{
+            visibility: hidden;
+            position: absolute;
+            top:-150%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba($color-secondary, $alpha: .9);
+            color: $color-write;
+            border-radius: 5px;
+            padding: .8em;
+            transition: all ease-in-out .4s;
+            
+            &::after{
+                content: " ";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: rgba($color-secondary, $alpha: .9) transparent transparent transparent;
+            }
+
+            @media (max-width: 768px){
+                top: 70px;
+
+                &::after{
+                    content: " ";
+                    position: absolute;
+                    top: -15%;
+                    left: 50%;
+                    margin-left: -5px;
+                    border-width: 5px;
+                    border-style: solid;
+                    border-color: rgba($color-secondary, $alpha: .9) transparent transparent transparent;
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        input{
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-radius: 4px;
+            padding-left: 2em;
+
+            @media (max-width:768px){
+                padding-left: 1em;
+            }
+        }
+
+    }
+
+}
+
+.hidden{
+    display: none;
+}
